@@ -1,0 +1,39 @@
+/**
+ * Variables
+*/
+
+/* Breakpoints */
+$screenSmall: 480px;
+$screenMedium: 768px;
+$screenLarge: 1080px;
+
+/* Margins */
+$marginSmall: 16px;
+$marginMedium: 24px;
+$marginLarge: 32px;
+
+/* Color palette */
+$black: #000;
+$blackLight: lighten($black, 20%);
+$white: #fff;
+$whiteDark: darken($white, 20%);
+/* greys */
+$grey1: #393939;
+$grey2: #949494;
+$grey3: #d8d8d8;
+/* colors */
+$red: #f00;
+$redLight: lighten($red, 20%);
+$redDark: darken($red, 20%);
+$green: #0f0;
+$greenLight: lighten($green, 20%);
+$greenDark: darken($green, 20%);
+$blue: #00f;
+$blueLight: lighten($blue, 20%);
+$blueDark: darken($blue, 20%);
+
+/* various */
+$roundedRadius: 8px;
+
+
+/* Components */

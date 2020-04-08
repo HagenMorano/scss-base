@@ -1,0 +1,89 @@
+/**
+ * Helper mixins
+*/
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+// Media queries
+@mixin bp($point) {
+  @media (min-width: $point) { @content; }
+}
+
+/* responsive margins */
+@mixin responsiveMargin($margin, $noXMargin: null, $noYMargin: null) {
+
+  margin: calc(#{$margin} / 4);
+
+  @include bp($screenSmall) {
+    margin: calc(#{$margin} / 3);
+  }
+  @include bp($screenMedium) {
+    margin: calc(#{$margin} / 2);
+  }
+  @include bp($screenLarge) {
+    margin: $margin;
+  }
+  @if $noXMargin {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  @if $noYMargin {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* responsive paddings */
+@mixin responsivePadding($padding, $noXPadding:null, $noYPadding:null) {
+
+  padding: calc(#{$padding} / 4);
+
+  @include bp($screenSmall) {
+    padding: calc(#{$padding} / 3);
+  }
+  @include bp($screenMedium) {
+    padding: calc(#{$padding} / 2);
+  }
+  @include bp($screenLarge) {
+    padding: $padding;
+  }
+  @if $noXPadding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  @if $noYPadding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+// Text selection
+@mixin textSelection($color-selection, $color-selection-bg) {
+  ::-moz-selection { // sass-lint:disable-line no-vendor-prefixes
+    background: $color-selection-bg;
+    color: $color-selection;
+    text-shadow: none;
+  }
+
+  ::selection {
+    background: $color-selection-bg;
+    color: $color-selection;
+    text-shadow: none;
+  }
+}
+
+//Placeholders
+//Usage:
+//@include placeholder;
+@mixin placeholder {
+  // sass-lint:disable no-vendor-prefixes
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
